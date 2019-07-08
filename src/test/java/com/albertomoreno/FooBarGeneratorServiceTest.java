@@ -25,7 +25,7 @@ public class FooBarGeneratorServiceTest {
 
     @Test
     public void generator_should_return_list_with_N_numbers() throws Exception {
-        List<Integer> foos = service.generate(1, 100);
+        List<FooBarNumber> foos = service.generate(1, 100);
         assertNotNull(foos);
         assertEquals(100, foos.size());
     }

@@ -9,10 +9,10 @@ import java.util.stream.IntStream;
 public class FooBarGeneratorService {
 
 
-    public List<Integer> generate(int fromInclusive, int toInclusive) {
+    public List<FooBarNumber> generate(int fromInclusive, int toInclusive) {
         if (fromInclusive > toInclusive)
             throw new IllegalArgumentException("Le chiffre de départ ne peut pas être supérieur que le chiffre de destination");
 
-        return IntStream.range(fromInclusive, toInclusive + 1).boxed().collect(Collectors.toList());
+        return IntStream.range(fromInclusive, toInclusive + 1).mapToObj(i -> FooBarNumber.valueOf(i)).collect(Collectors.toList());
     }
 }
