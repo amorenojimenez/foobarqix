@@ -1,6 +1,7 @@
 package com.albertomoreno;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class FooBarNumber {
 
@@ -25,5 +26,10 @@ public class FooBarNumber {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d", value);
     }
 }
