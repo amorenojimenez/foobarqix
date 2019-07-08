@@ -26,7 +26,13 @@ public class FooBarNumberTest {
             "7, Qix",
             "8, 8",
             "9, Foo",
-            "10, Bar"
+            "10, Bar",
+            "51, FooBar",
+            "53, BarFoo",
+            "13, Foo",
+            "15, FooBarBar",
+            "33, FooFooFoo",
+            "27, FooQix"
     })
     public void number_should_translate_to_foobar(int number, String expectedFooBarText) {
         FooBarNumber fooBar = FooBarNumber.valueOf(number);
