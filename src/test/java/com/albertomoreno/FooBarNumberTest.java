@@ -15,17 +15,18 @@ public class FooBarNumberTest {
     private final static String FOO = "Foo";
     private final static String BAR = "Bar";
 
-    @Disabled
     @ParameterizedTest(name = "{index}) number={0}, expected toString={1}")
     @CsvSource({
             "1, 1",
-            "1, 1",
-            "1, 1",
-            "1, 1",
-            "1, 1",
-            "1, 1",
-            "1, 1",
-            "1, 1"
+            "2, 2",
+            "3, FooFoo",
+            "4, 4",
+            "5, BarBar",
+            "6, Foo",
+            "7, Qix",
+            "8, 8",
+            "9, Foo",
+            "10, Bar"
     })
     public void number_should_translate_to_foobar(int number, String expectedFooBarText) {
         FooBarNumber fooBar = FooBarNumber.valueOf(number);
