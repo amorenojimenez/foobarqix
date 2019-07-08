@@ -1,12 +1,20 @@
 package com.albertomoreno;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
 
 
 public class FooBarNumberTest {
 
+    private final static String FOO = "Foo";
+
+    @Disabled
     @ParameterizedTest(name = "{index}) number={0}, expected toString={1}")
     @CsvSource({
             "1, 1",
@@ -21,5 +29,13 @@ public class FooBarNumberTest {
     public void number_should_translate_to_foobar(int number, String expectedFooBarText) {
         FooBarNumber fooBar = FooBarNumber.valueOf(number);
         Assertions.assertEquals(expectedFooBarText, fooBar.toString());
+    }
+
+    @Test
+    public void multiplesx3_should_begin_by_foo() {
+        for (int i = 1; i < 100; i++) {
+            FooBarNumber fooBar = FooBarNumber.valueOf(i * 3);
+            assertThat(fooBar.toString(), startsWith(FOO));
+        }
     }
 }

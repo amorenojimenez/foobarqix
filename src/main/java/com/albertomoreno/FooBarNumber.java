@@ -30,6 +30,7 @@ public class FooBarNumber {
 
     @Override
     public String toString() {
+        if (value % 3 == 0) return "Foo";
         return String.format("%d", value);
     }
 }
