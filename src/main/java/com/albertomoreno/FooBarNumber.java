@@ -1,9 +1,13 @@
 package com.albertomoreno;
 
+import java.io.StringWriter;
 import java.util.Objects;
 import java.util.StringJoiner;
 
 public class FooBarNumber {
+
+    private final static String FOO = "Foo";
+    private final static String BAR = "Bar";
 
     private final int value;
 
@@ -30,7 +34,10 @@ public class FooBarNumber {
 
     @Override
     public String toString() {
-        if (value % 3 == 0) return "Foo";
-        return String.format("%d", value);
+        StringBuilder sb = new StringBuilder();
+        if (value % 3 == 0) sb.append(FOO);
+        if (value % 5 == 0) sb.append(BAR);
+
+        return (sb.length() > 0) ? sb.toString() : String.format("%d", value);
     }
 }

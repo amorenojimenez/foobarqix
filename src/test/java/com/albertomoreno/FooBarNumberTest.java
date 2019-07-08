@@ -13,6 +13,7 @@ import static org.hamcrest.CoreMatchers.*;
 public class FooBarNumberTest {
 
     private final static String FOO = "Foo";
+    private final static String BAR = "Bar";
 
     @Disabled
     @ParameterizedTest(name = "{index}) number={0}, expected toString={1}")
@@ -36,6 +37,14 @@ public class FooBarNumberTest {
         for (int i = 1; i < 100; i++) {
             FooBarNumber fooBar = FooBarNumber.valueOf(i * 3);
             assertThat(fooBar.toString(), startsWith(FOO));
+        }
+    }
+
+    @Test
+    public void multiplesx5_should_contain_bar() {
+        for (int i = 1; i < 100; i++) {
+            FooBarNumber fooBar = FooBarNumber.valueOf(i * 5);
+            assertThat(fooBar.toString(), containsString(BAR));
         }
     }
 }
