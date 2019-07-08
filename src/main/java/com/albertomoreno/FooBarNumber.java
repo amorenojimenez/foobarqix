@@ -2,10 +2,8 @@ package com.albertomoreno;
 
 import com.google.common.collect.ImmutableMap;
 
-import java.io.StringWriter;
 import java.util.Map;
 import java.util.Objects;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class FooBarNumber {
