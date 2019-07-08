@@ -12,11 +12,12 @@ public class FooBarNumber {
 
     private final static String FOO = "Foo";
     private final static String BAR = "Bar";
-    private final static String QIX = "QIX";
+    private final static String QIX = "Qix";
+
     private final static Map<String, String> convert = ImmutableMap.of(
-            "3", "Foo",
-            "5", "Bar",
-            "7", "Qix");
+            "3", FOO,
+            "5", BAR,
+            "7", QIX);
 
 
     private final int value;
