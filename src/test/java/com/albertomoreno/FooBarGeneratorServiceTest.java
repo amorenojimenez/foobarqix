@@ -1,10 +1,14 @@
 package com.albertomoreno;
 
+import org.hamcrest.CoreMatchers;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 import java.util.List;
 
@@ -24,9 +28,13 @@ public class FooBarGeneratorServiceTest {
     }
 
     @Test
-    public void generator_should_return_list_with_N_numbers() throws Exception {
+    public void generator_should_return_list_with_all_numbers_in_requested_interval() throws Exception {
         List<FooBarNumber> foos = service.generate(1, 100);
         assertNotNull(foos);
-        assertEquals(100, foos.size());
+        assertThat(foos, hasSize(100));
+
+        for (int i = 1; i <= 100; i++) {
+            assertThat(foos, hasItem(FooBarNumber.valueOf(i)));
+        }
     }
 }
